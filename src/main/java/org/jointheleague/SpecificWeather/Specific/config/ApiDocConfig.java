@@ -29,12 +29,16 @@ public class ApiDocConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .useDefaultResponseMessages(false)
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("org.jointheleague.SpecificWeather.Specific.presentation"))
                 .paths(PathSelectors.any())
-                .build()
-                .apiInfo(apiInfo())
-                .pathMapping("/");
+                .build();
+//                .useDefaultResponseMessages(false)
+//                .select()
+//                .apis(RequestHandlerSelectors.any())
+//                .paths(PathSelectors.any())
+//                .build()
+//                .apiInfo(apiInfo())
+//                .pathMapping("/");
     }
 }
